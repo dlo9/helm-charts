@@ -1,0 +1,23 @@
+# For possible values, see: https://github.com/k8s-at-home/charts/blob/master/charts/common/values.yaml
+
+# image:
+#   repository:
+#   pullPolicy:
+#   tag:
+# 
+# strategy:
+#   type: RollingUpdate
+# 
+# service:
+#   port:
+#     port:
+# 
+# env:
+#   TZ: UTC
+#   PUID: 1001
+#   PGID: 1001
+# 
+# persistence:
+#   config:
+#     enabled: false
+#     emptyDir: false
