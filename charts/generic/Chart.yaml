@@ -2,8 +2,8 @@ apiVersion: v2
 name: generic
 description: A generic application template using the common library from k8s@home
 type: application
-version: 2.2.1
-appVersion: 2.2.1
+version: 3.0.1
+appVersion: 3.0.1
 keywords:
   - generic
   - template
@@ -15,4 +15,4 @@ maintainers:
 dependencies:
   - name: common
     repository: https://k8s-at-home.com/charts/
-    version: 2.2.1
+    version: 3.0.1
