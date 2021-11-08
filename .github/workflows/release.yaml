@@ -3,7 +3,7 @@
 # Mostly copied from the chart-releaser template:
 # https://github.com/helm/chart-releaser-action#example-workflow
 
-name: Release Charts
+name: Release
 
 on:
   push:
@@ -14,7 +14,7 @@ on:
       - '!/**/README.md'
 
 jobs:
-  release-charts:
+  release:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
