@@ -1,16 +1,18 @@
 # For possible values, see: https://github.com/k8s-at-home/library-charts/tree/common-4.0.1/charts/stable/common
 
-image:
-  repository: ""
-  tag: latest
-  pullPolicy: IfNotPresent
+# Override library defaults
+# Values here may be overridden in the chart template
+common:
+  image:
+    repository: ""
+    tag: latest
+    pullPolicy: IfNotPresent
 
-service:
-  main:
-    enabled: false
-    ports:
-      http:
-        enabled: false
-      metrics:
-        enabled: false
-        port: 9090
+  service:
+    main:
+      enabled: false
+      ports:
+        http:
+          enabled: false
+        metrics:
+          port: 9090

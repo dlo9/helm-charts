@@ -1,1 +1,2 @@
 - [ ] Linting: https://github.com/k8s-at-home/charts/blob/468c7842da44817fab2f77e64de587c64b246b9a/.github/workflows/charts-lint-test.yaml
+- [ ] Easy configmap mounts/definitions
