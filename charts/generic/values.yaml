@@ -1,27 +1,10 @@
-# For possible values, see: https://github.com/k8s-at-home/library-charts/blob/common-4.0.1/charts/stable/common/values.yaml
+# For possible values, see: https://github.com/k8s-at-home/library-charts/tree/common-4.0.1/charts/stable/common
 
-# image:
-#   repository:
-#   pullPolicy:
-#   tag:
-# 
-# strategy:
-#   type: RollingUpdate
-# 
-# service:
-#   main:
-#     ports:
-#       http:
-#         enabled: true
-#         port: 80
-# 
-# env:
-#   TZ: UTC
-#   PUID: 1001
-#   PGID: 1001
-# 
-# persistence:
-#   config:
-#     enabled: false
-#     emptyDir: false
-#     retain: true
+image:
+  repository: ""
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    enabled: false
