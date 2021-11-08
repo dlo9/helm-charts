@@ -8,3 +8,9 @@ image:
 service:
   main:
     enabled: false
+    ports:
+      http:
+        enabled: false
+      metrics:
+        enabled: false
+        port: 9090

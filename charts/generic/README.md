@@ -9,3 +9,4 @@ a new chart definition:
 1. Manifest names default to the release name instead of this chart name
 2. All optional manifests are opt-in
 3. Image `tag` and `pullPolicy` are optional
+4. A `metrics` port is available
