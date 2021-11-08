@@ -1,4 +1,4 @@
-# For possible values, see: https://github.com/k8s-at-home/charts/blob/master/charts/common/values.yaml
+# For possible values, see: https://github.com/k8s-at-home/library-charts/blob/common-4.0.1/charts/stable/common/values.yaml
 
 # image:
 #   repository:
@@ -9,8 +9,11 @@
 #   type: RollingUpdate
 # 
 # service:
-#   port:
-#     port:
+#   main:
+#     ports:
+#       http:
+#         enabled: true
+#         port: 80
 # 
 # env:
 #   TZ: UTC
@@ -21,3 +24,4 @@
 #   config:
 #     enabled: false
 #     emptyDir: false
+#     retain: true
