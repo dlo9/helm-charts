@@ -1,0 +1,27 @@
+apiVersion: v1
+entries:
+  generic:
+  - apiVersion: v2
+    appVersion: 4.0.1
+    created: "2021-11-08T02:30:37.572644497Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com/
+      version: 4.0.1
+    description: A generic application template using the common library from k8s@home
+    digest: 21e32a30a618e2cdf98e9ed231393349cfac7bd77f6d31de7c8b85b9b2429ea3
+    home: https://github.com/dlo9/helm-charts/tree/master/charts/generic
+    keywords:
+    - generic
+    - template
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - name: dlo9
+    name: generic
+    sources:
+    - https://github.com/k8s-at-home/charts/tree/master/charts/common
+    type: application
+    urls:
+    - https://github.com/dlo9/helm-charts/releases/download/generic-4.0.1/generic-4.0.1.tgz
+    version: 4.0.1
+generated: "2021-11-08T02:30:37.572651397Z"
