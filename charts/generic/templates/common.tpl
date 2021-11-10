@@ -6,7 +6,6 @@
 {{- $_ := set .Values.common "nameOverride" .Release.Name -}}
 
 
-
 {{- /************/ -}}
 {{- /* Services */ -}}
 {{- /************/ -}}
@@ -37,6 +36,31 @@
 {{- end -}}
 
 
+{{- /**********/ -}}
+{{- /* Config */ -}}
+{{- /**********/ -}}
+
+{{- range $persistenceName, $persistenceSpec := .Values.persistence -}}
+	{{- if eq $persistenceSpec.type "configMap" -}}
+		{{- /* Configure a configMap volume */ -}}
+		{{- $_ := set $persistenceSpec "type" "custom" -}}
+		{{- $_ := set $persistenceSpec "volumeSpec" (dict "configMap" (dict "name" $persistenceName)) -}}
+
+		{{- /* Create the configmap */ -}}
+		{{- with $persistenceSpec.data -}}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $persistenceName }}
+data:
+{{ . | toYaml | indent 2 }}
+---
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
 {{- /*************/ -}}
 {{- /* Debugging */ -}}
 {{- /*************/ -}}
@@ -45,6 +69,7 @@
 values:
   {{- .Values | toYaml  -}}
  {{- end -}}
+
 
 {{- /****************/ -}}
 {{- /* Common chart */ -}}
