@@ -13,6 +13,7 @@ common:
       enabled: false
       ports:
         http:
+          port: 80
           enabled: false
         metrics:
           port: 9090
