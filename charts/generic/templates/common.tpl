@@ -35,6 +35,14 @@
 	{{- end -}}
 {{- end -}}
 
+{{- /***************/ -}}
+{{- /* Persistence */ -}}
+{{- /***************/ -}}
+
+{{- range $persistenceName, $persistenceSpec := .Values.persistence -}}
+	{{- /* Enable all defined persistence by default */ -}}
+	{{- $_ := set $persistenceSpec "enabled" (default true $persistenceSpec.enabled) -}}
+{{- end -}}
 
 {{- /**********/ -}}
 {{- /* Config */ -}}
