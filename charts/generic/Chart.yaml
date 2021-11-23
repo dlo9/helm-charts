@@ -2,7 +2,7 @@ apiVersion: v2
 name: generic
 description: A generic application template using the common library from k8s@home
 type: application
-version: 1.2.2
+version: 1.3.0
 appVersion: 4.0.1
 kubeVersion: ">=1.16.0-0"
 keywords:
