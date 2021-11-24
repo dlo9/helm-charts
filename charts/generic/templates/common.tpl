@@ -27,8 +27,13 @@
 {{- range $name, $spec := .Values.persistence -}}
 	{{- if eq $spec.type "configMap" -}}
 		{{- /* Configure a configMap volume */ -}}
+		{{- $volumeSpec := dict "configMap" (dict "name" $name) -}}
+		{{- if $spec.defaultMode -}}
+			{{- $_ := set $volumeSpec.configMap "defaultMode" $spec.defaultMode -}}
+		{{- end -}}
+
 		{{- $_ := set $spec "type" "custom" -}}
-		{{- $_ := set $spec "volumeSpec" (dict "configMap" (dict "name" $name)) -}}
+		{{- $_ := set $spec "volumeSpec" $volumeSpec -}}
 
 		{{- /* Create the configmap */ -}}
 		{{- with $spec.data -}}
@@ -58,7 +63,6 @@ data:
 	}
 */ -}}
 {{- define "applyDefaults" -}}
-	{{- printf "###### applying: %s, %s, %s\n" (keys .) .key .regex -}}
 	{{- $recursionKinds := list "map" "slice" -}}
 
 	{{- if not (or $.key $.regex) -}}
