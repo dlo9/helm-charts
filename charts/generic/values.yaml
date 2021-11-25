@@ -57,6 +57,9 @@ defaults:
   persistence:
     .*:
       enabled: true
+  configmap:
+    .*:
+      enabled: true
 
 
 # Common library overrides (Tier 3)

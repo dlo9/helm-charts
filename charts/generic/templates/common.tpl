@@ -20,36 +20,6 @@
 {{- end -}}
 
 
-{{- /***************************/ -}}
-{{- /* Persistence: ConfigMaps */ -}}
-{{- /***************************/ -}}
-
-{{- range $name, $spec := .Values.persistence -}}
-	{{- if eq $spec.type "configMap" -}}
-		{{- /* Configure a configMap volume */ -}}
-		{{- $volumeSpec := dict "configMap" (dict "name" $name) -}}
-		{{- if $spec.defaultMode -}}
-			{{- $_ := set $volumeSpec.configMap "defaultMode" $spec.defaultMode -}}
-		{{- end -}}
-
-		{{- $_ := set $spec "type" "custom" -}}
-		{{- $_ := set $spec "volumeSpec" $volumeSpec -}}
-
-		{{- /* Create the configmap */ -}}
-		{{- with $spec.data -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $name }}
-data:
-{{ . | toYaml | indent 2 }}
----
-		{{- end -}}
-	{{- end -}}
-{{- end -}}
-
-
 {{- /************/ -}}
 {{- /* Defaults */ -}}
 {{- /************/ -}}
