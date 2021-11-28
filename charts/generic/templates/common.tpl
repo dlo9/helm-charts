@@ -20,6 +20,30 @@
 {{- end -}}
 
 
+{{- with .Values.probes -}}
+	{{- $enabledDefault := .enabled -}}
+	{{ $_ := unset . "enabled" -}}
+
+	{{- if not .liveness -}}
+		{{- $_ := set . "liveness" (dict) -}}
+	{{- end -}}
+
+	{{- if not .readiness -}}
+		{{- $_ := set . "readiness" (dict) -}}
+	{{- end -}}
+
+	{{- if not .startup -}}
+		{{- $_ := set . "startup" (dict) -}}
+	{{- end -}}
+
+	{{- range $_, $probeSpec := . -}}
+		{{- if not (hasKey $probeSpec "enabled") -}}
+			{{- $_ := set $probeSpec "enabled" $enabledDefault -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
 {{- /************/ -}}
 {{- /* Defaults */ -}}
 {{- /************/ -}}

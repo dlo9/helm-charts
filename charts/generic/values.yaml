@@ -18,6 +18,8 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
+probes:
+  enabled: true
 
 # Template defaults (Tier 2)
 #
